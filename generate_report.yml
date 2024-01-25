@@ -11,8 +11,9 @@
     - name: Gather all legacy facts
       arista.eos.eos_facts:
         gather_subset: all
+      register: device_facts    
 
-    # - name: debug
-    #   debug: 
-    #     var: ansible_net_model
-          
+    - name: Generate Markdown report of device information
+      template:
+        src: "./reports/report_template.j2"
+        dest: "./reports/device_report.md"

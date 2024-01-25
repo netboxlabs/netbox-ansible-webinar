@@ -1,6 +1,6 @@
 ---
 - name: backup configuration
-  hosts: sites_container-lab
+  hosts: sites_container_lab
   gather_facts: false
   connection: network_cli
 

@@ -8,11 +8,12 @@
     - vars.yml
 
   tasks:
-    - name: Gather all legacy facts
+    - name: Gather LLDP Neighbor Information
       arista.eos.eos_facts:
-        gather_subset: all
+        gather_subset:
+          - interfaces
 
-    # - name: debug
-    #   debug: 
-    #     var: ansible_net_model
+    - name: debug
+      debug: 
+        var: ansible_net_neighbors
           

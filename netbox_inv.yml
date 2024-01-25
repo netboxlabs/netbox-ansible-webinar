@@ -7,3 +7,4 @@ compose:
 group_by: 
  - device_roles
  - sites
+ - platforms

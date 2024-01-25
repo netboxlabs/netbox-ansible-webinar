@@ -4,9 +4,6 @@
   connection: network_cli
   gather_facts: no
 
-  vars_files:
-    - vars.yml
-
   tasks:
     - name: Gather all facts
       arista.eos.eos_facts:

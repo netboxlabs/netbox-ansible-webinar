@@ -4,9 +4,6 @@
   connection: network_cli
   gather_facts: no
 
-  vars_files:
-    - vars.yml
-
   tasks:
     - name: Gather All Device Facts
       arista.eos.eos_facts:

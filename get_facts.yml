@@ -8,7 +8,7 @@
     - vars.yml
 
   tasks:
-    - name: Gather all legacy facts
+    - name: Gather all facts
       arista.eos.eos_facts:
         gather_subset: all
 

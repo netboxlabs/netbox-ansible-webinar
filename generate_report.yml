@@ -8,10 +8,9 @@
     - vars.yml
 
   tasks:
-    - name: Gather all legacy facts
+    - name: Gather All Device Facts
       arista.eos.eos_facts:
-        gather_subset: all
-      register: device_facts    
+        gather_subset: all   
 
     - name: Generate Markdown report of device information
       template:

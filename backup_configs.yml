@@ -1,5 +1,5 @@
 ---
-- name: backup configuration
+- name: Backup Device Configurations
   hosts: sites_container_lab
   gather_facts: false
   connection: network_cli
@@ -9,7 +9,7 @@
 
   tasks:
     - name: run show running-config on remote devices
-      ios_command:
+      eos_command:
         commands: "show running-config"
       register: config
 

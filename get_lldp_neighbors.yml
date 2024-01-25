@@ -1,5 +1,5 @@
 ---
-- name: Gather Arista EOS Facts
+- name: Get LLDP Neighbors
   hosts: sites_container_lab
   connection: network_cli
   gather_facts: no

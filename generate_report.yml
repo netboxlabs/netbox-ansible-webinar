@@ -1,15 +1,15 @@
 ---
-- name: Gather Arista EOS Facts
+- name: Generate Device Report
   hosts: sites_container_lab
-  connection: network_cli
   gather_facts: no
+  connection: network_cli
 
   tasks:
-    - name: Gather All Device Facts
+    - name: Gather Device Facts For Report
       arista.eos.eos_facts:
         gather_subset: all   
 
-    - name: Generate Markdown report of device information
+    - name: Generate Markdown Report Using Device Facts
       template:
         src: "./reports/report_template.j2"
         dest: "./reports/device_report.md"

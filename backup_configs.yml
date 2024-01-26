@@ -11,7 +11,7 @@
     - name: run show running-config on remote devices
       eos_command:
         commands: "show running-config"
-      register: config
+      register: running_config
 
     - name: ensure backup folder is created
       file:
@@ -24,11 +24,7 @@
         path: "{{ backup_root }}/{{ inventory_hostname }}"
         state: directory
 
-    - name: get timestamp
-      command: date +%Y%m%d
-      register: timestamp
-
     - name: get/copy backup
       copy:
-        content: "{{ config.stdout[0] }}"
-        dest: "{{ backup_root }}/{{ inventory_hostname }}/running-config_{{ timestamp.stdout }}"
+        content: "{{ running_config.stdout[0] }}"
+        dest: "{{ backup_root }}/{{ inventory_hostname }}/{{ inventory_hostname }}_running.conf"

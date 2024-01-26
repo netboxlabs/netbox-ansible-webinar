@@ -1,12 +1,11 @@
 ---
 - name: Compare Configuration Files with Exclusions
-  hosts: ceos-sw-1
+  hosts: sites_container_lab
   gather_facts: no
 
   vars:
     actual_conf_dir: "./backups/{{ inventory_hostname }}"
     intended_conf_dir: "./intended_configs/{{ inventory_hostname }}"
-    # exclusion_pattern: "(^username.*)|(^! Command:)|(^! device:)"
     exclusion_pattern: "(^! Command:)|(^! device:)"
 
   tasks:
@@ -18,7 +17,7 @@
       register: actual_temp_file
       delegate_to: localhost
 
-    - name: Remove lines starting with 'username' from temp actual configuration
+    - name: Remove lines matching the exclusiionn pattern from temp actual configuration
       ansible.builtin.lineinfile:
         path: "{{ actual_temp_file.dest }}"
         regexp: "{{ exclusion_pattern }}"

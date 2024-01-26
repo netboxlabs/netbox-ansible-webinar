@@ -1,0 +1,45 @@
+---
+- name: Compare Configuration Files with Exclusions
+  hosts: ceos-sw-1
+  gather_facts: no
+
+  vars:
+    actual_conf_dir: "./backups/{{ inventory_hostname }}"
+    intended_conf_dir: "./intended_configs/{{ inventory_hostname }}"
+    # exclusion_pattern: "(^username.*)|(^! Command:)|(^! device:)"
+    exclusion_pattern: "(^! Command:)|(^! device:)"
+
+  tasks:
+    - name: Create temp file for actual configuration
+      ansible.builtin.copy:
+        src: "{{ actual_conf_dir }}/{{ inventory_hostname }}.conf"
+        dest: "/tmp/{{ inventory_hostname }}_temp.conf"
+        remote_src: yes
+      register: actual_temp_file
+      delegate_to: localhost
+
+    - name: Remove lines starting with 'username' from temp actual configuration
+      ansible.builtin.lineinfile:
+        path: "{{ actual_temp_file.dest }}"
+        regexp: "{{ exclusion_pattern }}"
+        state: absent
+      delegate_to: localhost
+
+    - name: Diff compare temp actual configuration file with intended configuration file
+      command: "diff /tmp/{{ inventory_hostname }}_temp.conf {{ intended_conf_dir }}/{{ inventory_hostname }}_intended.conf"
+      register: diff_output
+      ignore_errors: yes
+      changed_when: false
+      delegate_to: localhost
+
+    - name: Show diff output
+      debug:
+        msg: "{{ diff_output.stdout_lines }}"
+      when: diff_output.stdout != ""
+      delegate_to: localhost
+
+    - name: Cleanup temp actual configuration file
+      ansible.builtin.file:
+        path: "{{ actual_temp_file.dest }}"
+        state: absent
+      delegate_to: localhost

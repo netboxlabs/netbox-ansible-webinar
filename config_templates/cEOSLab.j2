@@ -10,7 +10,7 @@ hostname {{ device.name }}
 !
 spanning-tree mode mstp
 !
-{% for vl in device.site.vlans.all() %}
+{%- for vl in device.site.vlans.all() %}
 vlan {{vl.vid }}
    name {{ vl.name }}
 !

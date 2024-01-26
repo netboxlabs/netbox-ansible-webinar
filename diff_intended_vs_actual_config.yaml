@@ -11,7 +11,7 @@
   tasks:
     - name: Create temp file for actual configuration
       ansible.builtin.copy:
-        src: "{{ actual_conf_dir }}/{{ inventory_hostname }}.conf"
+        src: "{{ actual_conf_dir }}/{{ inventory_hostname }}_running.conf"
         dest: "/tmp/{{ inventory_hostname }}_temp.conf"
         remote_src: yes
       register: actual_temp_file

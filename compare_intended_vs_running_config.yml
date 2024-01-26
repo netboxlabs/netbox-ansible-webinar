@@ -17,7 +17,7 @@
       register: actual_temp_file
       delegate_to: localhost
 
-    - name: Remove lines matching the exclusiionn pattern from temp actual configuration
+    - name: Remove lines matching the exclusion pattern from temp actual configuration
       ansible.builtin.lineinfile:
         path: "{{ actual_temp_file.dest }}"
         regexp: "{{ exclusion_pattern }}"

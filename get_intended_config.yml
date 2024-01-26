@@ -1,5 +1,5 @@
 ---
-- name: Get Intended Device Confifs From NetBox
+- name: Get Intended Device Configs From NetBox
   connection: local
   hosts: sites_container_lab
   gather_facts: False
@@ -45,7 +45,3 @@
       copy:
         content: "{{ intended_config.json.content }}"
         dest: "{{ intended_configs_root }}/{{ inventory_hostname }}/{{ inventory_hostname }}_intended.conf"
-
-
-
-

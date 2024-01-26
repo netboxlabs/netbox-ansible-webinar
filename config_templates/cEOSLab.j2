@@ -1,0 +1,40 @@
+!
+no aaa root
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname {{ device.name }}
+!
+spanning-tree mode mstp
+!
+{% for vl in device.site.vlans.all() %}
+vlan {{vl.vid }}
+ name {{ vl.name }} 
+{%- endfor %}
+!
+management api http-commands
+   protocol https ssl profile selfSignedSSLProfile
+   no shutdown
+!
+management api gnmi
+   transport grpc default
+!
+management api netconf
+   transport ssh default
+!
+management security
+   ssl profile selfSignedSSLProfile
+      certificate self-signed.crt key self-signed.key
+!
+interface Ethernet1
+!
+interface Ethernet2
+!
+interface Management0
+   ip address {{ device.primary_ip.address }} {{ device.primary_ip.address.netmask }}
+!
+no ip routing
+!
+end

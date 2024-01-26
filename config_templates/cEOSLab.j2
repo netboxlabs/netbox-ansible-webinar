@@ -1,6 +1,8 @@
 !
 no aaa root
 !
+username admin privilege 15 role network-admin secret sha512 $6$Nfus.CLqubtUkR/5$RMXV7ErzvU2M1UeycFsgIZx5rAQoypSWsfvUXH6u4xM6bT0AkNhpb.MqBhl1AbBj3PI4CUe8w2hC1nM.ZwiRU0
+!
 transceiver qsfp default-mode 4x10G
 !
 service routing protocols model multi-agent
@@ -11,9 +13,9 @@ spanning-tree mode mstp
 !
 {% for vl in device.site.vlans.all() %}
 vlan {{vl.vid }}
- name {{ vl.name }} 
-{%- endfor %}
+   name {{ vl.name }}
 !
+{%- endfor %}
 management api http-commands
    protocol https ssl profile selfSignedSSLProfile
    no shutdown
@@ -33,7 +35,7 @@ interface Ethernet1
 interface Ethernet2
 !
 interface Management0
-   ip address {{ device.primary_ip.address }} {{ device.primary_ip.address.netmask }}
+   ip address {{ device.primary_ip.address }}
 !
 no ip routing
 !

@@ -5,7 +5,7 @@
   gather_facts: no
 
   tasks:
-    - name: Gather LLDP Neighbor Information
+    - name: Gather LLDP neighbor information
       arista.eos.eos_facts:
         gather_subset:
           - interfaces
@@ -13,4 +13,3 @@
     - name: debug
       debug: 
         var: ansible_net_neighbors
-          

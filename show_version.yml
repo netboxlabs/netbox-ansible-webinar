@@ -5,7 +5,7 @@
   connection: network_cli
 
   tasks:
-    - name: run show version command on remote devices
+    - name: Run 'show version' command on remote devices
       eos_command:
         commands: "show version"
       register: show_version

@@ -8,23 +8,23 @@
     backup_root: ./backups
 
   tasks:
-    - name: run show running-config on remote devices
+    - name: 1 - Run 'show running-config' on remote devices
       eos_command:
         commands: "show running-config"
       register: running_config
 
-    - name: ensure backup folder is created
+    - name: 2 - Ensure backup folder is created
       file:
         path: "{{ backup_root }}"
         state: directory
       run_once: yes
 
-    - name: ensure device folder is created
+    - name: 3 - Ensure device folder is created
       file:
         path: "{{ backup_root }}/{{ inventory_hostname }}"
         state: directory
 
-    - name: get/copy backup
+    - name: 4 - Write the configuration to the backup file
       copy:
         content: "{{ running_config.stdout[0] }}"
         dest: "{{ backup_root }}/{{ inventory_hostname }}/{{ inventory_hostname }}_running.conf"

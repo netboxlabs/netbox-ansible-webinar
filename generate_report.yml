@@ -5,11 +5,11 @@
   connection: network_cli
 
   tasks:
-    - name: Gather Device Facts For Report
+    - name: 1 - Gather device facts for report
       arista.eos.eos_facts:
         gather_subset: all   
 
-    - name: Generate Markdown Report Using Device Facts
+    - name: 2- Generate markdown report using device facts
       template:
         src: "./reports/report_template.j2"
         dest: "./reports/device_report.md"

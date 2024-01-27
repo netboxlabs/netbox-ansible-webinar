@@ -1,6 +1,6 @@
 ---
 - name: Gather Arista EOS Facts
-  hosts: sites_container_lab
+  hosts: ceos-sw-1
   connection: network_cli
   gather_facts: no
 
@@ -8,8 +8,4 @@
     - name: Gather all facts
       arista.eos.eos_facts:
         gather_subset: all
-
-    # - name: debug
-    #   debug: 
-    #     var: ansible_net_model
           

@@ -25,11 +25,11 @@
     pip install pytz
     pip install ansible-pylibssh
     ```
-    **option 2** - Install from 'requirements.txt' file: 
+    **option 2** - Install from `requirements.txt` file: 
     ```
     pip install -r requirements.txt
     ```
-5. Install
+5. Install Ansible Galaxy Collection for NetBox
     ```
     ansible-galaxy collection install netbox.netbox
     ```

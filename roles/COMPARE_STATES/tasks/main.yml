@@ -21,7 +21,7 @@
   changed_when: false
   delegate_to: localhost
 
-- name: 4 - Show Delta of Intended State Vs Actual State
+- name: 4 - Show delta of intended state vs actual State
   debug:
     msg: "{{ diff_output.stdout_lines }}"
   when: diff_output.stdout != ""

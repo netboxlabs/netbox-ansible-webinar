@@ -17,7 +17,6 @@ vlan {{vl.vid }}
 !
 {%- endfor %}
 management api http-commands
-   protocol https ssl profile selfSignedSSLProfile
    no shutdown
 !
 management api gnmi
@@ -25,10 +24,6 @@ management api gnmi
 !
 management api netconf
    transport ssh default
-!
-management security
-   ssl profile selfSignedSSLProfile
-      certificate self-signed.crt key self-signed.key
 !
 interface Ethernet1
 !

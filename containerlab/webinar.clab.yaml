@@ -1,7 +1,7 @@
-name: testlab
+name: webinar
 
 mgmt:
-  network: lab-net
+  network: webinar-net
   ipv4-subnet: 172.21.21.0/24
 
 topology:
@@ -23,4 +23,4 @@ topology:
   links:
     - endpoints: ["ceos-sw-1:eth1", "ceos-sw-2:eth1"]
     - endpoints: ["ceos-sw-1:eth2", "ceos-sw-3:eth1"]
-    - endpoints: ["ceos-sw-2:eth2", "ceos-sw-3:eth2"]
+    - endpoints: ["ceos-sw-2:eth2", "ceos-sw-3:eth2"]`

@@ -113,4 +113,3 @@ ceos-sw-3>
 
 - list containers: `docker ps`
 - list images: `docker images`
-- stop and delete Diode (fresh start): `docker compose down -v`

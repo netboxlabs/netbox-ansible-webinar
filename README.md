@@ -51,7 +51,8 @@
     deactivate
     ```
 
-## TODO - Building the Virtual Network With Containerlab
+## Building the Virtual Network With Containerlab
 
-1. Install Containerlab following these [instructions](https://containerlab.dev/install/)
-2. Use the [Topology file](./containerlab/testlab.clab.yaml) 
+Follow these [instructions](./containerlab/README.md) to install containerlab, and build the lab network
+
+Alternatively you use the official [Containerlab documenation](https://containerlab.dev/install/)

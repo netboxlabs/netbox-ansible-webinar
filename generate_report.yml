@@ -1,5 +1,5 @@
 ---
-- name: Generate Device Report For OS, Version and Serial Numbers
+- name: Generate Device Report For Host, IP Address, OS, Version and Serial Numbers
   hosts: sites_container_lab
   gather_facts: no
   connection: network_cli

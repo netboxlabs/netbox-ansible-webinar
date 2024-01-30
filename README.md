@@ -1,5 +1,9 @@
 # netbox-ansible-webinar
 
+Ansible code to accompany the **Webinar: Getting Started with Network Automation: 
+NetBox & Ansible** hosted by **NetBox Labs** on 30th Jan 2024.
+
+
 ## Getting Started With The Ansible Playbooks
 
 1. Clone the Git repo and change into the `netbox-ansible-webinar` directory:

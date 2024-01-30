@@ -3,6 +3,12 @@
 Ansible code to accompany the **Webinar: Getting Started with Network Automation: 
 NetBox & Ansible** hosted by **NetBox Labs** on 30th Jan 2024.
 
+## Get Access to a NetBox instance
+
+For hassle-free access to NetBox you can either use the NetBox Labs demo site, or request a free 14 Day Trial of NetBox Cloud: 
+
+- [Demo Site](https://netboxlabs.com/netbox-demo/)
+- [Free Trial of NetBox Cloud](https://netboxlabs.com/trial/)
 
 ## Getting Started With The Ansible Playbooks
 
